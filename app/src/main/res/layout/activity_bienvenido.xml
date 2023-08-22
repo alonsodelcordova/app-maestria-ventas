@@ -1,9 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.BienvenidoActivity">
+    tools:context=".views.BienvenidoActivity"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Bienvenido al Sistema de Control"
+        android:textSize="25dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Categorias"
+        android:layout_margin="5dp"
+        android:onClick="irCategorias"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clientes"
+        android:layout_margin="5dp"
+        android:onClick="irClientes"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Proveedores"
+        android:layout_margin="5dp"
+        android:onClick="irProveedores"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Productos"
+        android:layout_margin="5dp"
+        android:onClick="irProductos"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ventas"
+        android:layout_margin="5dp"
+        />
+
+
+</LinearLayout>
