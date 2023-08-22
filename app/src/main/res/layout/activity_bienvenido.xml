@@ -5,39 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.BienvenidoActivity"
-    android:orientation="vertical"
-    android:padding="20dp"
-   >
-
+    android:orientation="vertical">
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bienvenida"
-        tools:layout_editor_absoluteX="113dp"
-        tools:layout_editor_absoluteY="74dp"
-        android:layout_gravity="center"
-        android:textSize="25dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="Bienvenido al Sistema de Control"
+        android:textSize="25dp"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Categorias"
+        android:layout_margin="5dp"
+        android:onClick="irCategorias"
         />
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        android:layout_gravity="center"
-        tools:layout_editor_absoluteX="224dp"
-        tools:layout_editor_absoluteY="224dp" />
-
-    <EditText
-        android:id="@+id/editTextDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginTop="20dp"
-        android:inputType="date"
-        android:hint="Ingrese Fecha"/>
+        android:text="Clientes"
+        android:layout_margin="5dp"
+        android:onClick="irClientes"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Proveedores"
+        android:layout_margin="5dp"
+        android:onClick="irProveedores"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Productos"
+        android:layout_margin="5dp"
+        android:onClick="irProductos"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ventas"
+        android:layout_margin="5dp"
+        />
 
 
 </LinearLayout>

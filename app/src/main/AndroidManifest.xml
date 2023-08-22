@@ -22,6 +22,15 @@
             android:name=".views.ClienteActivity"
             android:exported="false" />
         <activity
+            android:name=".views.ProductoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.ProveedorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.AlmacenActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.BienvenidoActivity"
             android:exported="false" />
         <activity
