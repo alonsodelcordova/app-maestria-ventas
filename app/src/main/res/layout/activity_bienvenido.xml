@@ -49,6 +49,7 @@
         android:layout_height="wrap_content"
         android:text="Ventas"
         android:layout_margin="5dp"
+        android:onClick="irVentas"
         />
 
 

@@ -23,8 +23,8 @@ public class BienvenidoActivity extends AppCompatActivity {
     }
 
     public void irClientes(View view){
-        //Intent intent = new Intent(this, CategoriaActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(this, ClienteActivity.class);
+        startActivity(intent);
     }
 
     public void irProveedores(View view){
@@ -34,6 +34,11 @@ public class BienvenidoActivity extends AppCompatActivity {
 
     public void irProductos(View view){
         Intent intent = new Intent(this, ProductoActivity.class);
+        startActivity(intent);
+    }
+
+    public void irVentas(View view){
+        Intent intent = new Intent(this, VentasActivity.class);
         startActivity(intent);
     }
 
