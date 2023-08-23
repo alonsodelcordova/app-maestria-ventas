@@ -59,4 +59,14 @@
         android:onClick="iraHome"/>
 
 
+    <TextView
+        android:id="@+id/txtResptMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Respuesta: "
+        android:textSize="20dp"/>
+
+
 </LinearLayout>

@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Appmaestriaventas"
-        tools:targetApi="31">
+        tools:targetApi="31"
+        android:usesCleartextTraffic="true"
+        >
         <activity
             android:name=".views.CategoriaActivity"
             android:exported="false" />
@@ -20,9 +22,6 @@
             android:exported="false" />
         <activity
             android:name=".views.ProveedorActivity"
-            android:exported="false" />
-        <activity
-            android:name=".views.AlmacenActivity"
             android:exported="false" />
         <activity
             android:name=".views.BienvenidoActivity"
@@ -37,5 +36,6 @@
             </intent-filter>
         </activity>
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>
