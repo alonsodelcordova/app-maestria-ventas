@@ -26,7 +26,7 @@
         android:textSize="20dp"/>
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/txtUsuarioMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -43,7 +43,7 @@
         android:textSize="20dp"/>
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/txtPasswordMain"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
