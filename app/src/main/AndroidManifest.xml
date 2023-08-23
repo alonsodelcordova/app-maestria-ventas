@@ -15,7 +15,13 @@
         android:usesCleartextTraffic="true"
         >
         <activity
+            android:name=".views.VentasActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.CategoriaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.ClienteActivity"
             android:exported="false" />
         <activity
             android:name=".views.ProductoActivity"
