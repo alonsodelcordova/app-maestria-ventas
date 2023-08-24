@@ -18,7 +18,8 @@ public class BienvenidoActivity extends AppCompatActivity {
 
 
     public void irCategorias(View view){
-        Intent intent = new Intent(this, CategoriaActivity.class);
+        //Intent intent = new Intent(this, CategoriaActivity.class);
+        Intent intent = new Intent(this, CategoriaListActivity.class);
         startActivity(intent);
     }
 
