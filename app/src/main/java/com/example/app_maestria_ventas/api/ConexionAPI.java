@@ -10,7 +10,7 @@ public class ConexionAPI {
 
     public static Retrofit getConexion(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.130:80/curso_api/")
+                .baseUrl("http://192.168.100.7:80/api-maestria-ventas/")
                 .addConverterFactory(GsonConverterFactory.create(
                         new GsonBuilder().serializeNulls().create()
                 ))
