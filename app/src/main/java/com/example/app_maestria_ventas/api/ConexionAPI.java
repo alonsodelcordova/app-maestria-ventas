@@ -19,4 +19,9 @@ public class ConexionAPI {
     }
 
 
+    public static TipoGasService getTipoGasService(){
+        return getConexion().create(TipoGasService.class);
+    }
+
+
 }

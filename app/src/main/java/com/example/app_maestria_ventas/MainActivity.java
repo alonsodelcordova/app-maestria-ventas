@@ -26,7 +26,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
-
     TextView txtRespuesta, txtUsuario, txtPassword;
     List<UsuarioModel> usuarioModels = new ArrayList<>();
     @Override
@@ -36,50 +35,36 @@ public class MainActivity extends AppCompatActivity {
         txtRespuesta = (TextView) findViewById(R.id.txtResptMain);
         txtUsuario = (TextView) findViewById(R.id.txtUsuarioMain);
         txtPassword = (TextView) findViewById(R.id.txtPasswordMain);
-        //getTipos();
         getUsuarios();
 
     }
 
     public void iraHome(View view){
-
         String usuario = txtUsuario.getText().toString();
-
+        String password = txtPassword.getText().toString();
         Optional<UsuarioModel> usuarioModel = usuarioModels.stream().filter(el-> el.getUsuario().equals(usuario)).findFirst();
         if(usuarioModel.isPresent()){
-            Intent intent = new Intent(this, BienvenidoActivity.class);
-            startActivity(intent);
+            if(password.equals(usuarioModel.get().getPassword())){
+                Toast.makeText(MainActivity.this, "Usuario no existe ", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, BienvenidoActivity.class);
+                startActivity(intent);
+                limpiar();
+            }else{
+                Toast.makeText(MainActivity.this, "Contraseña incorrecta ", Toast.LENGTH_SHORT).show();
+                txtPassword.requestFocus();
+            }
         }else{
-            txtRespuesta.setText("Usuario no existe");
+            Toast.makeText(MainActivity.this, "Usuario no existe ", Toast.LENGTH_SHORT).show();
+            limpiar();
         }
 
     }
 
-    private List<TipoGas> getTipos(){
-        List<TipoGas> lista = new ArrayList<>();
-        TipoGasService postService = ConexionAPI.getConexion().create(TipoGasService.class);
-        Call<RespuestaGenerica<TipoGas>> call = postService.getPost();
-        call.enqueue(new Callback<RespuestaGenerica<TipoGas>>() {
-            @Override
-            public void onResponse(Call<RespuestaGenerica<TipoGas>> call, Response<RespuestaGenerica<TipoGas>> response) {
-                for(TipoGas post : response.body().getContenido()) {
-                    lista.add(post);
-                }
-                txtRespuesta.setText("Se cargaron: " + lista.size());
-                Toast.makeText(MainActivity.this, "Se cargaron: " + lista.size(), Toast.LENGTH_SHORT).show();
-                //Toast.makeText(getBaseContext(),"Se cargaron: " + lista.size(), Toast.LENGTH_SHORT ).show();
-            }
-
-            @Override
-            public void onFailure(Call<RespuestaGenerica<TipoGas>> call, Throwable t) {
-                txtRespuesta.setText("Error en cargar datos "+t.getMessage());
-                Log.i("Error",t.getMessage());
-                Toast.makeText(MainActivity.this, "Fail to get the data..", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        return lista;
+    public void limpiar(){
+        txtUsuario.setText("");
+        txtPassword.setText("");
     }
+
 
     private void getUsuarios(){
         UsuarioService usuarioService = ConexionAPI.getConexion().create(UsuarioService.class);
@@ -90,18 +75,14 @@ public class MainActivity extends AppCompatActivity {
                 for(UsuarioModel user : response.body().getContenido()) {
                     usuarioModels.add(user);
                 }
-
                 Toast.makeText(MainActivity.this, "Se cargaron usuarios : " + usuarioModels.size(), Toast.LENGTH_SHORT).show();
-                //Toast.makeText(getBaseContext(),"Se cargaron: " + lista.size(), Toast.LENGTH_SHORT ).show();
             }
-
             @Override
             public void onFailure(Call<RespuestaGenerica<UsuarioModel>> call, Throwable t) {
                 Log.i("Error",t.getMessage());
-                Toast.makeText(MainActivity.this, "Fail to get the data..", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "FALLO LA CONEXION CON EL API.", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
 }
