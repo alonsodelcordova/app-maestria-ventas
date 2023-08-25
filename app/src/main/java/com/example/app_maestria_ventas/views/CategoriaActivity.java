@@ -72,7 +72,7 @@ public class CategoriaActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<RespuestaGenerica<CategoriaModel>> call, Throwable t) {
-                Toast.makeText(CategoriaActivity.this, "Categoria Agregada", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CategoriaActivity.this, "Categoria No Agregada", Toast.LENGTH_SHORT).show();
                 loadingPB.setVisibility(View.GONE);
             }
         });

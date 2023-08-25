@@ -28,7 +28,7 @@ public class BienvenidoActivity extends AppCompatActivity {
     }
 
     public void irProveedores(View view){
-        Intent intent = new Intent(this, ProveedorActivity.class);
+        Intent intent = new Intent(this, ProveedorListActivity.class);
         startActivity(intent);
     }
 
