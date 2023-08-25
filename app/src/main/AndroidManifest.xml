@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".views.ProveedorListActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.ClienteListActivity"
             android:exported="false" />
         <activity

@@ -1,6 +1,7 @@
 package com.example.app_maestria_ventas.api;
 
 import com.example.app_maestria_ventas.services.CategoriaService;
+import com.example.app_maestria_ventas.services.ProveedorService;
 import com.example.app_maestria_ventas.services.TipoGasService;
 import com.example.app_maestria_ventas.services.UsuarioService;
 import com.google.gson.GsonBuilder;
@@ -31,6 +32,11 @@ public class ConexionAPI {
 
     public static UsuarioService getUsuarioService(){
         return getConexion().create(UsuarioService.class);
+    }
+
+
+    public static ProveedorService getProveedorService(){
+        return getConexion().create(ProveedorService.class);
     }
 
 
