@@ -17,21 +17,21 @@
         android:layout_alignParentStart="true"
         android:background="#7AD81B" />
     <LinearLayout
-        android:id="@+id/linerLayoutUsuarioItem"
+        android:id="@+id/linerLayoutClienteItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
         android:padding="20dp">
         <TextView
-            android:id="@+id/txtIdItemUsuario"
+            android:id="@+id/txtIdItemCliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ID : "
             />
 
         <TextView
-            android:id="@+id/txtNombreItemUsuario"
+            android:id="@+id/txtNombreItemCliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nombre : "

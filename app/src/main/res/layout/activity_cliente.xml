@@ -99,6 +99,7 @@
         android:layout_height="wrap_content"
         android:paddingRight="50dp"
         android:paddingLeft="50dp"
+        android:onClick="onCreateCliente"
         android:text="Grabar Cliente"
         android:layout_gravity="center"/>
 
