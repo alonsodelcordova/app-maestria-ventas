@@ -11,9 +11,7 @@ import android.widget.Toast;
 
 import com.example.app_maestria_ventas.api.ConexionAPI;
 import com.example.app_maestria_ventas.models.RespuestaGenerica;
-import com.example.app_maestria_ventas.models.TipoGas;
 import com.example.app_maestria_ventas.models.UsuarioModel;
-import com.example.app_maestria_ventas.services.TipoGasService;
 import com.example.app_maestria_ventas.services.UsuarioService;
 import com.example.app_maestria_ventas.views.BienvenidoActivity;
 
@@ -45,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         Optional<UsuarioModel> usuarioModel = usuarioModels.stream().filter(el-> el.getUsuario().equals(usuario)).findFirst();
         if(usuarioModel.isPresent()){
             if(password.equals(usuarioModel.get().getPassword())){
-                Toast.makeText(MainActivity.this, "Usuario no existe ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Bienvenido!!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this, BienvenidoActivity.class);
                 startActivity(intent);
                 limpiar();
@@ -67,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void getUsuarios(){
-        UsuarioService usuarioService = ConexionAPI.getConexion().create(UsuarioService.class);
+        UsuarioService usuarioService = ConexionAPI.getUsuarioService();
         Call<RespuestaGenerica<UsuarioModel>> call = usuarioService.getUsuarios();
         call.enqueue(new Callback<RespuestaGenerica<UsuarioModel>>() {
             @Override

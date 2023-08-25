@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".views.CategoriaActivity">
+    tools:context=".views.CategoriaActivity"
+    android:padding="20dp">
 
 
     <TextView
@@ -31,7 +32,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="" />
+        android:text=""
+        android:hint="Ingrese categoria..."/>
 
     <Button
         android:id="@+id/Grabar"
@@ -41,7 +43,15 @@
         android:paddingRight="50dp"
         android:paddingLeft="50dp"
         android:text="Grabar Categoria"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:onClick="onCreateCategory"/>
 
+    <!--progress bar for loading -->
+    <ProgressBar
+        android:id="@+id/idLoadingPB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
 
 </LinearLayout>

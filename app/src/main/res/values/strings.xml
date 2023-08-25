@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">app-maestria-ventas</string>
+    <string name="title_activity_categoria_list">CategoriaListActivity</string>
 </resources>
