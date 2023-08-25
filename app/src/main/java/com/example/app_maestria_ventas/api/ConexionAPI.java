@@ -1,11 +1,8 @@
 package com.example.app_maestria_ventas.api;
 
 import com.example.app_maestria_ventas.services.CategoriaService;
-<<<<<<< HEAD
 import com.example.app_maestria_ventas.services.ClienteService;
-=======
 import com.example.app_maestria_ventas.services.ProveedorService;
->>>>>>> main
 import com.example.app_maestria_ventas.services.TipoGasService;
 import com.example.app_maestria_ventas.services.UsuarioService;
 import com.google.gson.GsonBuilder;
