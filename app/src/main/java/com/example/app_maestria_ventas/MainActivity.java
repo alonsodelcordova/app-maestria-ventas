@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void getUsuarios(){
-        UsuarioService usuarioService = ConexionAPI.getConexion().create(UsuarioService.class);
+        UsuarioService usuarioService = ConexionAPI.getUsuarioService();
         Call<RespuestaGenerica<UsuarioModel>> call = usuarioService.getUsuarios();
         call.enqueue(new Callback<RespuestaGenerica<UsuarioModel>>() {
             @Override

@@ -18,13 +18,12 @@ public class BienvenidoActivity extends AppCompatActivity {
 
 
     public void irCategorias(View view){
-        //Intent intent = new Intent(this, CategoriaActivity.class);
         Intent intent = new Intent(this, CategoriaListActivity.class);
         startActivity(intent);
     }
 
     public void irClientes(View view){
-        Intent intent = new Intent(this, ClienteActivity.class);
+        Intent intent = new Intent(this, ClienteListActivity.class);
         startActivity(intent);
     }
 
