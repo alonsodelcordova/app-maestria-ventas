@@ -8,7 +8,6 @@
     android:padding="20dp"
     tools:context=".views.VentasActivity">
 
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"
@@ -16,6 +15,7 @@
         android:layout_marginTop="2dp"
         android:gravity="center"
         android:text="NUEVA VENTA"
+        android:textStyle="bold"
         android:textSize="20dp" />
 
     <TextView
@@ -23,15 +23,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="COMPROBANTE"
-        android:textSize="15dp" />
+        android:textSize="20sp" />
 
     <Spinner
-        android:id="@+id/spinCompro"
+        android:id="@+id/spComprobanteVenta"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:entries="@array/strcomprobantes"
+        android:textSize="20sp" />
 
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -42,7 +43,7 @@
             android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:text="SERIE"
-            android:textSize="15dp" />
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -50,31 +51,32 @@
             android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:text="CORRELATIVO"
-            android:textSize="15dp" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 
     <LinearLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <EditText
-            android:id="@+id/editTextSerie"
+            android:id="@+id/editTextSerieVenta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="20sp"
             android:ems="10"
             android:inputType="text"
             android:hint="serie"
             android:text="" />
 
         <EditText
-            android:id="@+id/editTextCorrelativo"
+            android:id="@+id/editTextCorrelativoVenta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="20sp"
             android:hint="correlativo"
             android:ems="10"
             android:inputType="text"
@@ -88,10 +90,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="CLIENTE"
-        android:textSize="15dp" />
+        android:textSize="20sp" />
 
     <Spinner
-        android:id="@+id/spinnerCliente"
+        android:id="@+id/spClienteVenta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -100,12 +102,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="PRODUCTO"
-        android:textSize="15dp" />
+        android:textSize="20sp" />
 
     <Spinner
-        android:id="@+id/spinnerProducto"
+        android:id="@+id/spProductoVenta"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="20sp"/>
 
     <LinearLayout
 
@@ -114,28 +117,33 @@
         android:orientation="horizontal">
 
         <EditText
-
+            android:id="@+id/editTextProductoVenta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="20sp"
             android:ems="10"
             android:inputType="text"
             android:hint="producto"
             android:text="" />
 
         <EditText
+            android:id="@+id/editTextPrecioVenta"
              android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="20sp"
             android:hint="precio"
             android:ems="10"
             android:inputType="numberDecimal"
             android:text="" />
 
         <EditText
+            android:id="@+id/editTextCantidadVenta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="20sp"
             android:hint="cantidad"
             android:ems="10"
             android:inputType="number"
@@ -145,6 +153,7 @@
 
 
     <TextView
+        android:id="@+id/txtSubtotalVenta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -152,6 +161,7 @@
         android:textSize="20dp" />
 
     <TextView
+        android:id="@+id/txtIgvVenta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -159,11 +169,12 @@
         android:textSize="20dp" />
 
     <TextView
+        android:id="@+id/txtTotalVenta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="TOTAL : 0"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/Grabar"
@@ -174,6 +185,15 @@
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:text="Grabar" />
+
+    <!--progress bar for loading -->
+    <ProgressBar
+        android:id="@+id/idLoadingPB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
 
 
 </LinearLayout>
