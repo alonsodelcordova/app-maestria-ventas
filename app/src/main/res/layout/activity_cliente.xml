@@ -36,7 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RUC" />
+            android:text="RUC"
+            android:checked="true"/>
 
         <RadioButton
             android:id="@+id/radioButtonDni"
@@ -55,12 +56,13 @@
         android:textSize="15dp" />
 
     <EditText
-        android:id="@+id/editTextDocumento"
+        android:id="@+id/txtDocumentoCliente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
-        android:text="" />
+        android:inputType="number"
+        android:text=""
+        android:hint="Ingrese su numero..."/>
 
        <TextView
         android:layout_width="match_parent"
@@ -71,27 +73,27 @@
         android:textSize="15dp" />
 
     <EditText
-        android:id="@+id/editTextRazon"
+        android:id="@+id/txtRazonSocialCliente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:inputType="text"
-        android:text="" />
+        android:text=""
+        android:hint="Ingrese su nombre..."/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="DIRECCION"
+        android:text="DIRECCIÓN"
         android:textSize="15dp" />
 
     <EditText
-        android:id="@+id/editTextDireccion"
+        android:id="@+id/txtDireccionCliente"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:inputType="text"
-        android:text="" />
+        android:text=""
+        android:hint="Ingrese la direccion.."/>
 
     <Button
         android:id="@+id/Grabar"
@@ -99,6 +101,7 @@
         android:layout_height="wrap_content"
         android:paddingRight="50dp"
         android:paddingLeft="50dp"
+        android:layout_marginTop="20dp"
         android:onClick="onCreateCliente"
         android:text="Grabar Cliente"
         android:layout_gravity="center"/>

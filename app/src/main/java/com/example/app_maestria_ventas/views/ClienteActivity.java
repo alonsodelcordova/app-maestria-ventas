@@ -35,9 +35,9 @@ public class ClienteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cliente);
-        txtDocumento = (TextView) findViewById(R.id.editTextDocumento);
-        txtRazon = (TextView) findViewById(R.id.editTextRazon);
-        txtDireccion = (TextView) findViewById(R.id.editTextDireccion);
+        txtDocumento = (TextView) findViewById(R.id.txtDocumentoCliente);
+        txtRazon = (TextView) findViewById(R.id.txtRazonSocialCliente);
+        txtDireccion = (TextView) findViewById(R.id.txtDireccionCliente);
         radioButtonRuc = (RadioButton) findViewById(R.id.radioButtonRuc);
         radioButtonDni = (RadioButton) findViewById(R.id.radioButtonDni);
 
