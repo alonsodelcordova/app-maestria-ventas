@@ -59,11 +59,13 @@ public class CategoriaAdapterView  extends RecyclerView.Adapter<CategoriaAdapter
         public TextView txtId;
         public TextView txtCategoria;
         public LinearLayout linerLayoutCategoryItem;
+
         public ViewHolder(View itemView) {
             super(itemView);
             this.txtId = (TextView) itemView.findViewById(R.id.txtIdItemCategoria);
             this.txtCategoria = (TextView) itemView.findViewById(R.id.txtNombreItemCategoria);
             this.linerLayoutCategoryItem = (LinearLayout) itemView.findViewById(R.id.linerLayoutCategoryItem);
+
         }
     }
 }

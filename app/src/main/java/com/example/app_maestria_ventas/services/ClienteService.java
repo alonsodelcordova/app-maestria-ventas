@@ -15,7 +15,7 @@ import retrofit2.http.POST;
 public interface ClienteService {
     String API_GET_LISTADO = "Api.php?apicall=verClientes";
 
-    String API_POST_CREATE = "Api.php?apicall=grabarCliente";
+    String API_POST_CREATE = "Api.php?apicall=grabaCliente";
 
     @GET(API_GET_LISTADO)
     Call<RespuestaGenerica<ClienteModel>> getCliente();

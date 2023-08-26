@@ -83,6 +83,10 @@ public class ProveedorActivity extends AppCompatActivity {
 
     public void guardarProveedor(View view){
         progressBar.setVisibility(View.VISIBLE);
+       save();
+    }
+
+    private void save(){
         ProveedorModel modal = new ProveedorModel();
         modal.setRuc_proveedor(txtNroRuc.getText().toString());
         modal.setRazon_social(txtRazonSocial.getText().toString());

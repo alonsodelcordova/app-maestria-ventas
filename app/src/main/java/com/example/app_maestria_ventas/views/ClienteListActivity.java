@@ -27,9 +27,7 @@ import com.example.app_maestria_ventas.R;
 public class ClienteListActivity extends AppCompatActivity {
 
     public final static int OPINION_REQUEST_CODE = 1;
-
     RecyclerView recyclerView ;
-
     ClienteAdapterView ClienteAdapterView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

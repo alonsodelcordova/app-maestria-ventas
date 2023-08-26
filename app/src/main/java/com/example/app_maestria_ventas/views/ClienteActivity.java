@@ -45,11 +45,10 @@ public class ClienteActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String name = intent.getStringExtra("variable1");
 
-        }
+    }
 
     public void onCreateCliente(View view){
         postCliente();
-
     }
 
 
@@ -61,10 +60,7 @@ public class ClienteActivity extends AppCompatActivity {
     }
 
     private void postCliente() {
-
-
         ClienteModel modal = new ClienteModel();
-
         modal.setDireccion(txtDireccion.getText().toString());
         modal.setRazon_social(txtRazon.getText().toString());
         modal.setRuc(txtDocumento.getText().toString());
@@ -79,25 +75,20 @@ public class ClienteActivity extends AppCompatActivity {
         call.enqueue(new Callback<RespuestaGenerica<ClienteModel>>() {
             @Override
             public void onResponse(Call<RespuestaGenerica<ClienteModel>> call, Response<RespuestaGenerica<ClienteModel>> response) {
-                //Toast.makeText(CategoriaActivity.this, "Categoria Agregada", Toast.LENGTH_SHORT).show();
-
                 txtDocumento.setText("");
                 txtDireccion.setText("");
                 txtRazon.setText("");
                 radioButtonDni.isChecked();
-
                 if(response.body().getContenido()!=null){
                     salir("Cliente Agregado!! ");
                 }else{
                     Toast.makeText(ClienteActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                 }
-
             }
 
             @Override
             public void onFailure(Call<RespuestaGenerica<ClienteModel>> call, Throwable t) {
                 Toast.makeText(ClienteActivity.this, "Cliente no pudo Agregar", Toast.LENGTH_SHORT).show();
-
             }
         });
     }

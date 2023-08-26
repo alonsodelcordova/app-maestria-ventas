@@ -15,7 +15,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#7AD81B" />
+        android:background="#375C12" />
     <LinearLayout
         android:id="@+id/linerLayoutCategoryItem"
         android:layout_width="match_parent"
@@ -36,6 +36,7 @@
             android:layout_height="wrap_content"
             android:text="Nombre : "
             />
+
     </LinearLayout>
 
 

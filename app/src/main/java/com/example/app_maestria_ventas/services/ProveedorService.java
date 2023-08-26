@@ -3,6 +3,7 @@ package com.example.app_maestria_ventas.services;
 import com.example.app_maestria_ventas.models.ProveedorModel;
 import com.example.app_maestria_ventas.models.RespuestaGenerica;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
@@ -15,5 +16,5 @@ public interface ProveedorService {
     Call<RespuestaGenerica<ProveedorModel>> getProveedores();
 
     @POST(API_ROUTE_POST)
-    Call<RespuestaGenerica<ProveedorModel>> guardarProveedor(ProveedorModel input);
+    Call<RespuestaGenerica<ProveedorModel>> guardarProveedor(@Body ProveedorModel input);
 }
