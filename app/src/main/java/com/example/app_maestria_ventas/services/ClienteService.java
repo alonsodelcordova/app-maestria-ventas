@@ -17,10 +17,15 @@ public interface ClienteService {
 
     String API_POST_CREATE = "Api.php?apicall=grabaCliente";
 
+    String DELETECLIENTE = "Api.php?apicall=deleteCliente";
+
     @GET(API_GET_LISTADO)
     Call<RespuestaGenerica<ClienteModel>> getCliente();
     @POST(API_POST_CREATE)
     Call<RespuestaGenerica<ClienteModel>> createCliente(@Body ClienteModel dataModal);
+
+    @POST(DELETECLIENTE)
+    Call<RespuestaGenerica<ClienteModel>> eliminarCliente(@Body ClienteModel dataModal);
 
 
 }
