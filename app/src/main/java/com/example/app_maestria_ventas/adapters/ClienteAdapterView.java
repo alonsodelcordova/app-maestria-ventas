@@ -54,7 +54,6 @@ public class ClienteAdapterView extends RecyclerView.Adapter<ClienteAdapterView.
         notifyDataSetChanged();
     }
 
-
     @Override
     public int getItemCount() {
         return listdata.size();

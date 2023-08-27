@@ -1,16 +1,21 @@
 package com.example.app_maestria_ventas.models;
 
+import java.util.Date;
+
 public class ProductoModel {
     private String id_producto;
     private String id_categoria;
     private String id_unidad;
     private String idAlmacen;
     private String codigo;
-    private String nombre;
+    private String  nombre;
     private String descripcion;
     private String stock;
     private String precio_venta;
+    private String fecha_registro;
 
+    public ProductoModel() {
+    }
 
     public String getId_producto() {
         return id_producto;
@@ -82,5 +87,13 @@ public class ProductoModel {
 
     public void setPrecio_venta(String precio_venta) {
         this.precio_venta = precio_venta;
+    }
+
+    public String getFecha_registro() {
+        return fecha_registro;
+    }
+
+    public void setFecha_registro(String fecha_registro) {
+        this.fecha_registro = fecha_registro;
     }
 }
