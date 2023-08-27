@@ -3,49 +3,49 @@ package com.example.app_maestria_ventas.models;
 import java.util.Date;
 
 public class ProductoModel {
-    private int id_producto;
-    private int id_categoria;
-    private int id_unidad;
-    private int idAlmacen;
+    private String id_producto;
+    private String id_categoria;
+    private String id_unidad;
+    private String idAlmacen;
     private String codigo;
     private String  nombre;
     private String descripcion;
-    private int stock;
-    private Double precio_venta;
-    private Date fecha_registro;
+    private String stock;
+    private String precio_venta;
+    private String fecha_registro;
 
     public ProductoModel() {
     }
 
-    public int getId_producto() {
+    public String getId_producto() {
         return id_producto;
     }
 
-    public void setId_producto(int id_producto) {
+    public void setId_producto(String id_producto) {
         this.id_producto = id_producto;
     }
 
-    public int getId_categoria() {
+    public String getId_categoria() {
         return id_categoria;
     }
 
-    public void setId_categoria(int id_categoria) {
+    public void setId_categoria(String id_categoria) {
         this.id_categoria = id_categoria;
     }
 
-    public int getId_unidad() {
+    public String getId_unidad() {
         return id_unidad;
     }
 
-    public void setId_unidad(int id_unidad) {
+    public void setId_unidad(String id_unidad) {
         this.id_unidad = id_unidad;
     }
 
-    public int getIdAlmacen() {
+    public String getIdAlmacen() {
         return idAlmacen;
     }
 
-    public void setIdAlmacen(int idAlmacen) {
+    public void setIdAlmacen(String idAlmacen) {
         this.idAlmacen = idAlmacen;
     }
 
@@ -73,27 +73,27 @@ public class ProductoModel {
         this.descripcion = descripcion;
     }
 
-    public int getStock() {
+    public String getStock() {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(String stock) {
         this.stock = stock;
     }
 
-    public Double getPrecio_venta() {
+    public String getPrecio_venta() {
         return precio_venta;
     }
 
-    public void setPrecio_venta(Double precio_venta) {
+    public void setPrecio_venta(String precio_venta) {
         this.precio_venta = precio_venta;
     }
 
-    public Date getFecha_registro() {
+    public String getFecha_registro() {
         return fecha_registro;
     }
 
-    public void setFecha_registro(Date fecha_registro) {
+    public void setFecha_registro(String fecha_registro) {
         this.fecha_registro = fecha_registro;
     }
 }

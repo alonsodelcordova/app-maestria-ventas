@@ -33,11 +33,11 @@ import retrofit2.Response;
 
 public class VentasActivity extends AppCompatActivity {
     Spinner spComprobante, spCliente, spProducto;
-    EditText txtSerieVenta, txtCorrelativo, txtProducto, txtPrecio, txtCantidad;
+    EditText txtSerieVenta, txtCorrelativo, txtPrecio, txtCantidad;
     TextView txtSubtotal, txtIgv, txtTotal;
     Button btnGrabar;
     //Spinner spinner;
-
+    Double s,i,t;
 
     ArrayAdapter<String> adapterClientes;
     ArrayAdapter<String> adapterProductos;
@@ -53,7 +53,6 @@ public class VentasActivity extends AppCompatActivity {
         spProducto = findViewById(R.id.spProductoVenta);
         txtSerieVenta = findViewById(R.id.editTextSerieVenta);
         txtCorrelativo = findViewById(R.id.editTextCorrelativoVenta);
-        txtProducto = findViewById(R.id.editTextProductoVenta);
         txtPrecio = findViewById(R.id.editTextPrecioVenta);
         txtCantidad = findViewById(R.id.editTextCantidadVenta);
         txtSubtotal = findViewById(R.id.txtSubtotalVenta);
@@ -86,21 +85,24 @@ public class VentasActivity extends AppCompatActivity {
     public void onCreateVenta(View view){ postVenta();}
 
     private void postVenta(){
+
         VentasModel modal = new VentasModel();
         if(spComprobante.getSelectedItem().toString().equals("Boleta")){
-            modal.setId_comprobante(1); //1 Boleta
+            modal.setId_comprobante("1"); //1 Boleta
         }else{
-            modal.setId_comprobante(2); //2 Factura
+            modal.setId_comprobante("2"); //2 Factura
         }
         modal.setSerie(txtSerieVenta.getText().toString());
         modal.setCodigo(txtCorrelativo.getText().toString());
-        modal.setId_cliente(1); //falta jalar el id
-        modal.setId_producto("1"); //falta jalar el id
-        modal.setPrecio_venta(Double.parseDouble(txtPrecio.getText().toString()));
-        modal.setCantidad(Integer.parseInt(txtCantidad.getText().toString()));
-        modal.setSubtotal(Double.parseDouble(txtSubtotal.getText().toString()));
-        modal.setIgv(Double.parseDouble(txtIgv.getText().toString()));
-        modal.setTotal_i(Double.parseDouble(txtTotal.getText().toString()));
+        ClienteModel clienteModel = listClientes.get(spCliente.getSelectedItemPosition());
+        modal.setId_cliente(clienteModel.getId_cliente());
+        ProductoModel productoModel = listProductos.get(spProducto.getSelectedItemPosition());
+        modal.setId_producto(productoModel.getId_producto());
+        modal.setPrecio_venta(txtPrecio.getText().toString());
+        modal.setCantidad(txtCantidad.getText().toString());
+        modal.setSubtotal(s.toString());
+        modal.setIgv(i.toString());
+        modal.setTotal(t.toString());
 
         Call<RespuestaGenerica<VentasModel>> call = ConexionAPI.getVentaService().createVenta(modal);
         call.enqueue(new Callback<RespuestaGenerica<VentasModel>>() {
@@ -108,7 +110,6 @@ public class VentasActivity extends AppCompatActivity {
             public void onResponse(Call<RespuestaGenerica<VentasModel>> call, Response<RespuestaGenerica<VentasModel>> response) {
                 txtSerieVenta.setText("");
                 txtCorrelativo.setText("");
-                txtProducto.setText("");
                 txtPrecio.setText("");
                 txtCantidad.setText("");
                 txtSubtotal.setText("");
@@ -128,6 +129,15 @@ public class VentasActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void onCalculaVenta(View view){
+        s = Double.parseDouble(txtPrecio.getText().toString()) * Double.parseDouble(txtCantidad.getText().toString());
+        i = s * 0.18;
+        t = s + i;
+        txtSubtotal.setText(String.format("%.2f",s).toString());
+        txtIgv.setText(String.format("%.2f",i).toString());
+        txtTotal.setText(String.format("%.2f",t).toString());
     }
 
     public void salir(String mensaje){
