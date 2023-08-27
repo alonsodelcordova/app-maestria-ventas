@@ -62,7 +62,8 @@
         android:ems="10"
         android:inputType="number"
         android:text=""
-        android:hint="Ingrese su numero..."/>
+        android:hint="Ingrese su numero..."
+        android:background="@drawable/editext"/>
 
        <TextView
         android:layout_width="match_parent"
@@ -78,7 +79,8 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:text=""
-        android:hint="Ingrese su nombre..."/>
+        android:hint="Ingrese su nombre..."
+        android:background="@drawable/editext"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -93,7 +95,8 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:text=""
-        android:hint="Ingrese la direccion.."/>
+        android:hint="Ingrese la direccion.."
+        android:background="@drawable/editext"/>
 
     <Button
         android:id="@+id/Grabar"

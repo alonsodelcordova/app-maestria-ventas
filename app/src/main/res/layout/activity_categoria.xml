@@ -33,7 +33,8 @@
         android:ems="10"
         android:inputType="text"
         android:text=""
-        android:hint="Ingrese categoria..."/>
+        android:hint="Ingrese categoria..."
+        android:background="@drawable/editext"/>
 
     <Button
         android:id="@+id/Grabar"

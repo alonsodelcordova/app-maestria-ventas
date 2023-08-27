@@ -72,10 +72,11 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textSize="20sp"
-                    android:ems="10"
                     android:inputType="text"
                     android:hint="serie"
-                    android:text="" />
+                    android:text=""
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/editext"/>
 
                 <EditText
                     android:id="@+id/editTextCorrelativoVenta"
@@ -84,9 +85,10 @@
                     android:layout_weight="1"
                     android:textSize="20sp"
                     android:hint="correlativo"
-                    android:ems="10"
                     android:inputType="text"
-                    android:text="" />
+                    android:text=""
+                    android:background="@drawable/editext"
+                    android:layout_marginLeft="5dp"/>
 
             </LinearLayout>
 
@@ -101,7 +103,8 @@
             <Spinner
                 android:id="@+id/spClienteVenta"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                />
 
             <TextView
                 android:layout_width="match_parent"
@@ -152,7 +155,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="S/."
-                    android:textSize="20dp"/>
+                    android:textSize="20dp"
+                    />
                 <EditText
                     android:id="@+id/editTextPrecioVenta"
                     android:layout_width="match_parent"
@@ -160,9 +164,9 @@
                     android:layout_weight="1"
                     android:textSize="20sp"
                     android:hint="precio"
-                    android:ems="10"
                     android:inputType="numberDecimal"
-                    android:text="" />
+                    android:text=""
+                    android:background="@drawable/editext"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -176,9 +180,9 @@
                     android:layout_weight="1"
                     android:textSize="20sp"
                     android:hint="cantidad"
-                    android:ems="10"
                     android:inputType="number"
-                    android:text="" />
+                    android:text=""
+                    android:background="@drawable/editext"/>
 
             </LinearLayout>
 

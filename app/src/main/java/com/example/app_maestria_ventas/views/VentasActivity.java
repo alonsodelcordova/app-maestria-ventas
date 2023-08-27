@@ -171,6 +171,10 @@ public class VentasActivity extends AppCompatActivity {
     }
 
     public void onCalculaVenta(View view){
+        if(txtPrecio.getText().toString().isEmpty()||txtCantidad.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese datos correctos", Toast.LENGTH_SHORT).show();
+            return;
+        }
         subtotal = Double.parseDouble(txtPrecio.getText().toString()) * Double.parseDouble(txtCantidad.getText().toString());
         igv = subtotal * 0.18;
         total = subtotal + igv;

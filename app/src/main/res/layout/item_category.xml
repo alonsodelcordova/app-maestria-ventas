@@ -50,6 +50,7 @@
             android:layout_height="45dp"
             android:drawableTop="@drawable/baseline_delete_24"
             android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/primary"
             />
     </LinearLayout>
 

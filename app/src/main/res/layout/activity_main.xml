@@ -8,25 +8,32 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="30dp"
-        android:gravity="center"
-        android:text="Appp Gas"
-        android:textSize="30dp"/>
+        app:srcCompat="@drawable/imagen1"
+        android:foregroundGravity="center"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center"
+        android:text="APP GAS"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Usuario"
         android:textSize="20dp"/>
 
     <EditText
         android:id="@+id/txtUsuarioMain"
+        android:background="@drawable/editext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -48,7 +55,8 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="***********"/>
+        android:hint="***********"
+        android:background="@drawable/editext"/>
 
     <Button
         android:id="@+id/button"
@@ -56,7 +64,8 @@
         android:layout_height="wrap_content"
         android:text="INGRESAR"
         android:layout_marginTop="20dp"
-        android:onClick="iraHome"/>
+        android:onClick="iraHome"
+        android:backgroundTint="@color/primary"/>
 
 
     <TextView
@@ -65,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="Respuesta: "
+        android:text=""
         android:textSize="20dp"/>
 
 

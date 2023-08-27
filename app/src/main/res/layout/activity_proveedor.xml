@@ -40,7 +40,9 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:layout_weight="1"
-            android:hint="Ingrese el RUC" />
+            android:hint="Ingrese el RUC"
+            android:background="@drawable/editext"
+            android:layout_marginRight="10dp"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -61,7 +63,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:hint="Ingrese su razon social" />
+        android:hint="Ingrese su razon social"
+        android:background="@drawable/editext"/>
 
 
 
@@ -76,7 +79,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:hint="Ingrese la dirección" />
+        android:hint="Ingrese la dirección"
+        android:background="@drawable/editext"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -90,6 +94,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
+        android:background="@drawable/editext"
         />
 
     <TextView
@@ -104,6 +109,7 @@
         android:layout_height="wrap_content"
         android:inputType="text"
         android:minWidth="100dp"
+        android:background="@drawable/editext"
         />
 
 
