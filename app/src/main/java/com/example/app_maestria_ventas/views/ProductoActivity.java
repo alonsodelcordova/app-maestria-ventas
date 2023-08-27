@@ -2,8 +2,10 @@ package com.example.app_maestria_ventas.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -14,6 +16,7 @@ import com.example.app_maestria_ventas.api.ConexionAPI;
 import com.example.app_maestria_ventas.models.AlmacenModel;
 import com.example.app_maestria_ventas.models.CategoriaModel;
 import com.example.app_maestria_ventas.models.ClienteModel;
+import com.example.app_maestria_ventas.models.ProductoModel;
 import com.example.app_maestria_ventas.models.RespuestaGenerica;
 import com.example.app_maestria_ventas.models.UnidadMedidaModel;
 import com.example.app_maestria_ventas.services.AlmacenService;
@@ -31,7 +34,7 @@ import retrofit2.Response;
 
 public class ProductoActivity extends AppCompatActivity {
     Spinner spAlmacenes, spCategorias, spUnidadesMedida;
-    TextView txtCodigoProducto, txtNombreProducto, txtStock, txtPrecioVenta;
+    TextView txtCodigoProducto, txtNombreProducto, txtStock, txtPrecioVenta, txtDescripcion;
     List<AlmacenModel> listAlmacens =   new ArrayList<>();
     List<CategoriaModel> listCategorias = new ArrayList<>();
     List<UnidadMedidaModel> listUnidadMedida = new ArrayList<>();
@@ -50,6 +53,7 @@ public class ProductoActivity extends AppCompatActivity {
         txtNombreProducto = (TextView) findViewById(R.id.txtNombreProducto);
         txtStock = (TextView) findViewById(R.id.txtStockInicialProducto);
         txtPrecioVenta = (TextView) findViewById(R.id.txtPrecioVentaProducto);
+        txtDescripcion = (TextView) findViewById(R.id.txtDescripcionProducto);
 
         // adapter Almacen
         adapterAlmacenes = new ArrayAdapter<String>(this,
@@ -134,6 +138,63 @@ public class ProductoActivity extends AppCompatActivity {
                 Toast.makeText(ProductoActivity.this, "FALLO LA CONEXION CON EL API.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void onCreateProducto(View view){
+        postProductos();
+    }
+
+    private void postProductos() {
+        //loadingPB.setVisibility(View.VISIBLE);
+        CategoriaModel categoriaModel = listCategorias.get(spCategorias.getSelectedItemPosition());
+        UnidadMedidaModel unidadMedidaModel = listUnidadMedida.get(spUnidadesMedida.getSelectedItemPosition());
+        AlmacenModel almacenModel = listAlmacens.get(spAlmacenes.getSelectedItemPosition());
+
+
+        ProductoModel modal = new ProductoModel();
+        modal.setId_categoria(categoriaModel.getId_categoria());
+        modal.setId_unidad(unidadMedidaModel.getId_unidad());
+        modal.setIdAlmacen(almacenModel.getIdAlmacen());
+        modal.setCodigo(txtCodigoProducto.getText().toString());
+        modal.setNombre(txtNombreProducto.getText().toString());
+        modal.setDescripcion(txtDescripcion.getText().toString());
+        modal.setStock(txtStock.getText().toString());
+        modal.setPrecio_venta(txtPrecioVenta.getText().toString());
+        Call<RespuestaGenerica<ProductoModel>> call = ConexionAPI.getProductoService().createProducto(modal);
+        call.enqueue(new Callback<RespuestaGenerica<ProductoModel>>() {
+            @Override
+            public void onResponse(Call<RespuestaGenerica<ProductoModel>> call, Response<RespuestaGenerica<ProductoModel>> response) {
+                //Toast.makeText(CategoriaActivity.this, "Categoria Agregada", Toast.LENGTH_SHORT).show();
+                if(response.body().getContenido()!=null){
+                    limpiar();
+                    salir("Producto Agregado!! ");
+                }else{
+                    Toast.makeText(ProductoActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<RespuestaGenerica<ProductoModel>> call, Throwable t) {
+                Toast.makeText(ProductoActivity.this, "Producto No Agregada", Toast.LENGTH_SHORT).show();
+                //loadingPB.setVisibility(View.GONE);
+            }
+        });
+    }
+
+    public void limpiar(){
+        //loadingPB.setVisibility(View.GONE);
+        txtNombreProducto.setText("");
+        txtCodigoProducto.setText("");
+        txtDescripcion.setText("");
+        txtPrecioVenta.setText("");
+        txtStock.setText("");
+    }
+
+    public void salir(String mensaje){
+        Intent intent=new Intent();
+        intent.putExtra("MESSAGE",mensaje);
+        setResult(RESULT_OK,intent);
+        finish();//finishing activity
     }
 
 }

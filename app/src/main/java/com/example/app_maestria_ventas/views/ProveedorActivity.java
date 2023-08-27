@@ -67,7 +67,7 @@ public class ProveedorActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<ProveedorFacturacionModel> call, Throwable t) {
                 Log.i("Error: ",t.getMessage());
-                Toast.makeText(ProveedorActivity.this, "FALLO LA CONEXION CON EL API.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProveedorActivity.this, "Datos NO encontrados, ERROR.", Toast.LENGTH_SHORT).show();
                 progressBar.setVisibility(View.GONE);
                 limpiar();
             }

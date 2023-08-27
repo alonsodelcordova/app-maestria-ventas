@@ -12,7 +12,6 @@ public class ProductoModel {
     private String descripcion;
     private String stock;
     private String precio_venta;
-    private String fecha_registro;
 
     public ProductoModel() {
     }
@@ -89,11 +88,4 @@ public class ProductoModel {
         this.precio_venta = precio_venta;
     }
 
-    public String getFecha_registro() {
-        return fecha_registro;
-    }
-
-    public void setFecha_registro(String fecha_registro) {
-        this.fecha_registro = fecha_registro;
-    }
 }

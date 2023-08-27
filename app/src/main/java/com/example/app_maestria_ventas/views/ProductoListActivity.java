@@ -45,7 +45,7 @@ public class ProductoListActivity extends AppCompatActivity {
 
     public void getProductos(){
         ProductoService productoService = ConexionAPI.getProductosService();
-        Call<RespuestaGenerica<ProductoModel>> call = productoService.getProductos();
+        Call<RespuestaGenerica<ProductoModel>> call = productoService.getProducto();
         call.enqueue(new Callback<RespuestaGenerica<ProductoModel>>() {
             @Override
             public void onResponse(Call<RespuestaGenerica<ProductoModel>> call, Response<RespuestaGenerica<ProductoModel>> response) {

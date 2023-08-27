@@ -1,19 +1,19 @@
 package com.example.app_maestria_ventas.models;
 
 public class AlmacenModel {
-    private String id_almacen;
+    private String idAlmacen;
     private String almacen;
 
     public AlmacenModel(){
 
     }
 
-    public String getId_almacen() {
-        return id_almacen;
+    public String getIdAlmacen() {
+        return idAlmacen;
     }
 
-    public void setId_almacen(String id_almacen) {
-        this.id_almacen = id_almacen;
+    public void setIdAlmacen(String idAlmacen) {
+        this.idAlmacen = idAlmacen;
     }
 
     public String getAlmacen() {
