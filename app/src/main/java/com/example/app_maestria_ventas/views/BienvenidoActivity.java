@@ -33,7 +33,7 @@ public class BienvenidoActivity extends AppCompatActivity {
     }
 
     public void irProductos(View view){
-        Intent intent = new Intent(this, ProductoActivity.class);
+        Intent intent = new Intent(this, ProductoListActivity.class);
         startActivity(intent);
     }
 

@@ -3,8 +3,10 @@ package com.example.app_maestria_ventas.api;
 import com.example.app_maestria_ventas.services.AlmacenService;
 import com.example.app_maestria_ventas.services.CategoriaService;
 import com.example.app_maestria_ventas.services.ClienteService;
+import com.example.app_maestria_ventas.services.ProductoService;
 import com.example.app_maestria_ventas.services.ProveedorService;
 import com.example.app_maestria_ventas.services.TipoGasService;
+import com.example.app_maestria_ventas.services.UnidadMedidaService;
 import com.example.app_maestria_ventas.services.UsuarioService;
 import com.google.gson.GsonBuilder;
 
@@ -48,5 +50,10 @@ public class ConexionAPI {
         return getConexion().create(AlmacenService.class);
     }
 
-
+    public static UnidadMedidaService getUnidadMedidaService(){
+        return getConexion().create(UnidadMedidaService.class);
+    }
+    public static ProductoService getProductosService(){
+        return getConexion().create(ProductoService.class);
+    }
 }

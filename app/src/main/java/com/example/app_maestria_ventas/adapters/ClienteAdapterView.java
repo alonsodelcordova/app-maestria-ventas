@@ -33,8 +33,8 @@ public class ClienteAdapterView extends RecyclerView.Adapter<ClienteAdapterView.
     @Override
     public void onBindViewHolder(ClienteAdapterView.ViewHolder holder, int position) {
         final ClienteModel myListData = listdata.get(position);
-        holder.txtId.setText(listdata.get(position).getId_cliente());
-        holder.txtRazon.setText(listdata.get(position).getRazon_social());
+        holder.txtId.setText(listdata.get(position).getDocumento()+" : "+listdata.get(position).getRuc());
+        holder.txtRazon.setText("NOMBRE: "+listdata.get(position).getRazon_social());
         holder.linerLayoutClienteItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
