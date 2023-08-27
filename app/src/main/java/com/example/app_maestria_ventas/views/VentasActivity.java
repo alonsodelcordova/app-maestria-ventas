@@ -40,7 +40,7 @@ public class VentasActivity extends AppCompatActivity {
     Button btnGrabar;
     //Spinner spinner;
     TextView txtPVProductoVenta;
-    Double s,i,t;
+    Double subtotal,igv,total;
 
     ArrayAdapter<String> adapterClientes;
     ArrayAdapter<String> adapterProductos;
@@ -139,9 +139,9 @@ public class VentasActivity extends AppCompatActivity {
         modal.setId_producto(productoModel.getId_producto());
         modal.setPrecio_venta(txtPrecio.getText().toString());
         modal.setCantidad(txtCantidad.getText().toString());
-        modal.setSubtotal(s.toString());
-        modal.setIgv(i.toString());
-        modal.setTotal(t.toString());
+        modal.setSubtotal(subtotal.toString());
+        modal.setIgv(igv.toString());
+        modal.setTotal(total.toString());
 
         Call<RespuestaGenerica<VentasModel>> call = ConexionAPI.getVentaService().createVenta(modal);
         call.enqueue(new Callback<RespuestaGenerica<VentasModel>>() {
@@ -171,12 +171,12 @@ public class VentasActivity extends AppCompatActivity {
     }
 
     public void onCalculaVenta(View view){
-        s = Double.parseDouble(txtPrecio.getText().toString()) * Double.parseDouble(txtCantidad.getText().toString());
-        i = s * 0.18;
-        t = s + i;
-        txtSubtotal.setText(String.format("%.2f",s).toString());
-        txtIgv.setText(String.format("%.2f",i).toString());
-        txtTotal.setText(String.format("%.2f",t).toString());
+        subtotal = Double.parseDouble(txtPrecio.getText().toString()) * Double.parseDouble(txtCantidad.getText().toString());
+        igv = subtotal * 0.18;
+        total = subtotal + igv;
+        txtSubtotal.setText(String.format("%.2f",subtotal).toString());
+        txtIgv.setText(String.format("%.2f",igv).toString());
+        txtTotal.setText(String.format("%.2f",total).toString());
     }
 
     public void salir(String mensaje){
@@ -195,6 +195,7 @@ public class VentasActivity extends AppCompatActivity {
             public void onResponse(Call<RespuestaGenerica<ClienteModel>> call, Response<RespuestaGenerica<ClienteModel>> response) {
                 listClientes = response.body().getContenido();
                 adapterClientes.addAll(listClientes.stream().map(el->el.getRazon_social()).collect(Collectors.toList()));
+                adapterClientes.notifyDataSetChanged();
                 Toast.makeText(VentasActivity.this, "Se cargaron Clientes: " + response.body().getContenido().size(), Toast.LENGTH_SHORT).show();
             }
 
@@ -214,6 +215,7 @@ public class VentasActivity extends AppCompatActivity {
             public void onResponse(Call<RespuestaGenerica<ProductoModel>> call, Response<RespuestaGenerica<ProductoModel>> response) {
                 listProductos = response.body().getContenido();
                 adapterProductos.addAll(listProductos.stream().map(el->el.getDescripcion()).collect(Collectors.toList()));
+                adapterProductos.notifyDataSetChanged();
                 Toast.makeText(VentasActivity.this, "Se cargaron Productos: " + response.body().getContenido().size(), Toast.LENGTH_SHORT).show();
             }
 
