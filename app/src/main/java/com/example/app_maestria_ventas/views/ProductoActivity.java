@@ -47,7 +47,6 @@ public class ProductoActivity extends AppCompatActivity {
         txtCodigoProducto = (TextView) findViewById(R.id.txtCodProducto);
         txtNombreProducto = (TextView) findViewById(R.id.txtNombreProducto);
         txtStock = (TextView) findViewById(R.id.txtStockInicial);
-        txtPrecioCompra = (TextView) findViewById(R.id.txtPrecioCompraProducto);
         txtPrecioVenta = (TextView) findViewById(R.id.txtPrecioVentaProducto);
 
         // adapter Almacen

@@ -1,5 +1,6 @@
 package com.example.app_maestria_ventas.api;
 
+import com.example.app_maestria_ventas.services.AlmacenService;
 import com.example.app_maestria_ventas.services.CategoriaService;
 import com.example.app_maestria_ventas.services.ClienteService;
 import com.example.app_maestria_ventas.services.ProductoService;
@@ -51,5 +52,9 @@ public class ConexionAPI {
 
     public static VentaService getVentaService(){
         return getConexion().create(VentaService.class);
+    }
+
+    public static AlmacenService getAlmacenService(){
+        return getConexion().create(AlmacenService.class);
     }
 }
