@@ -11,12 +11,16 @@ import retrofit2.http.POST;
 public interface CategoriaService {
     String API_GET_LISTADO = "Api.php?apicall=verCategorias";
     String API_POST_CREATE = "Api.php?apicall=createcategoria";
+    String API_CATEGORIA_DELETE = "Api.php?apicall=deleteCategoria";
 
     @GET(API_GET_LISTADO)
     Call<RespuestaGenerica<CategoriaModel>> getCategorias();
 
     @POST(API_POST_CREATE)
     Call<RespuestaGenerica<CategoriaModel>> createCategory(@Body CategoriaModel dataModal);
+
+    @POST(API_CATEGORIA_DELETE)
+    Call<RespuestaGenerica<CategoriaModel>> deleteCategoria(@Body CategoriaModel dataModal);
 
 }
 
