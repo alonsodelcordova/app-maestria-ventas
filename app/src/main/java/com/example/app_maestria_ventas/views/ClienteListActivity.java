@@ -10,19 +10,15 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.app_maestria_ventas.R;
-import com.example.app_maestria_ventas.adapters.CategoriaAdapterView;
 import com.example.app_maestria_ventas.adapters.ClienteAdapterView;
 import com.example.app_maestria_ventas.api.ConexionAPI;
-import com.example.app_maestria_ventas.models.CategoriaModel;
 import com.example.app_maestria_ventas.models.ClienteModel;
 import com.example.app_maestria_ventas.models.RespuestaGenerica;
-import com.example.app_maestria_ventas.services.CategoriaService;
 import com.example.app_maestria_ventas.services.ClienteService;
 import java.util.ArrayList;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import com.example.app_maestria_ventas.R;
 
 public class ClienteListActivity extends AppCompatActivity {
 
