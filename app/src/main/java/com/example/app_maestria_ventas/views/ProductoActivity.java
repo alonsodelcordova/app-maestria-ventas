@@ -41,6 +41,7 @@ public class ProductoActivity extends AppCompatActivity {
     ArrayAdapter<String> adapterAlmacenes;
     ArrayAdapter<String> adapterCategorias;
     ArrayAdapter<String> adapterUnidadesDeMedida;
+    String cantidadProductos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,6 +81,10 @@ public class ProductoActivity extends AppCompatActivity {
         getAlmacenes();
         getCategorias();
         getUnidadesMedida();
+
+        //obtencion de codigo
+        Intent intent = getIntent();
+        cantidadProductos = intent.getStringExtra("cantidadProductos");
     }
 
 
@@ -139,6 +144,14 @@ public class ProductoActivity extends AppCompatActivity {
             }
         });
     }
+    public void generarCodigo(View view){
+        CategoriaModel categoriaModel = listCategorias.get(spCategorias.getSelectedItemPosition());
+        UnidadMedidaModel unidadMedidaModel = listUnidadMedida.get(spUnidadesMedida.getSelectedItemPosition());
+        AlmacenModel almacenModel = listAlmacens.get(spAlmacenes.getSelectedItemPosition());
+        String codigo = categoriaModel.getCategoria().substring(0,2)+
+                unidadMedidaModel.getUnidad().substring(0,1)+ almacenModel.getAlmacen().substring(0,2) + cantidadProductos;
+        txtCodigoProducto.setText(codigo.toUpperCase());
+    }
 
     public void onCreateProducto(View view){
         postProductos();
@@ -196,5 +209,7 @@ public class ProductoActivity extends AppCompatActivity {
         setResult(RESULT_OK,intent);
         finish();//finishing activity
     }
+
+
 
 }

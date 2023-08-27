@@ -37,7 +37,7 @@ public class CategoriaAdapterView  extends RecyclerView.Adapter<CategoriaAdapter
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         final CategoriaModel myListData = listdata.get(position);
-        holder.txtId.setText(listdata.get(position).getId_categoria());
+        holder.txtId.setText("ID: "+listdata.get(position).getId_categoria());
         holder.txtCategoria.setText(listdata.get(position).getCategoria());
         holder.linerLayoutCategoryItem.setOnClickListener(new View.OnClickListener() {
             @Override

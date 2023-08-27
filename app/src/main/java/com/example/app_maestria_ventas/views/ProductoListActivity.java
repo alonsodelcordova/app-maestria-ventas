@@ -19,6 +19,7 @@ import com.example.app_maestria_ventas.services.ProductoService;
 import com.example.app_maestria_ventas.services.ProveedorService;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,18 +29,20 @@ public class ProductoListActivity extends AppCompatActivity {
     public final static int OPINION_REQUEST_CODE = 1;
     RecyclerView recyclerView ;
     ProductoAdapterView productoAdapterView;
+    List<ProductoModel> listProductos = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_producto_list);
         recyclerView = (RecyclerView) findViewById(R.id.reciclerProductos);
-        productoAdapterView = new ProductoAdapterView(new ArrayList<>());
+        productoAdapterView = new ProductoAdapterView(listProductos);
         recyclerView.setAdapter(productoAdapterView);
         getProductos();
     }
 
     public void irAgregarProducto(View view){
         Intent intent = new Intent(this, ProductoActivity.class);
+        intent.putExtra("cantidadProductos",String.valueOf(listProductos.size()));
         startActivityForResult(intent,OPINION_REQUEST_CODE);
     }
 
@@ -49,8 +52,9 @@ public class ProductoListActivity extends AppCompatActivity {
         call.enqueue(new Callback<RespuestaGenerica<ProductoModel>>() {
             @Override
             public void onResponse(Call<RespuestaGenerica<ProductoModel>> call, Response<RespuestaGenerica<ProductoModel>> response) {
-                productoAdapterView.swapItems(response.body().getContenido());
-                Toast.makeText(ProductoListActivity.this, "Se cargaron productos : " + response.body().getContenido().size(), Toast.LENGTH_SHORT).show();
+                listProductos = response.body().getContenido();
+                productoAdapterView.swapItems(listProductos);
+                Toast.makeText(ProductoListActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
             }
             @Override
             public void onFailure(Call<RespuestaGenerica<ProductoModel>> call, Throwable t) {
