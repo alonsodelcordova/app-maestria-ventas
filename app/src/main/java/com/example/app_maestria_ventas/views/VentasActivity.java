@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,6 +39,7 @@ public class VentasActivity extends AppCompatActivity {
     TextView txtSubtotal, txtIgv, txtTotal;
     Button btnGrabar;
     //Spinner spinner;
+    TextView txtPVProductoVenta;
     Double s,i,t;
 
     ArrayAdapter<String> adapterClientes;
@@ -59,7 +62,7 @@ public class VentasActivity extends AppCompatActivity {
         txtIgv = findViewById(R.id.txtIgvVenta);
         txtTotal = findViewById(R.id.txtTotalVenta);
         btnGrabar = findViewById(R.id.Grabar);
-
+        txtPVProductoVenta = findViewById(R.id.txtPVProductoVenta);
 
 
         //adapterClientes
@@ -80,6 +83,42 @@ public class VentasActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String ncliente = intent.getStringExtra("variable1");
+
+
+        // evento para cambiar el precio de venta de cada producto
+        spProducto.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View view, int position, long id) {
+                    ProductoModel productoModel = listProductos.get(position);
+                    txtPVProductoVenta.setText("Precio de Venta Unitario: S/."+productoModel.getPrecio_venta());
+                    txtPrecio.setText(productoModel.getPrecio_venta());
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+                txtPVProductoVenta.setText("Precio de Venta Unitario: S/.0.0");
+                txtPrecio.setText(0);
+            }
+        });
+
+        // evento para controlar el stock
+        txtCantidad.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                String sCantidad = txtCantidad.getText().toString();
+                if (!sCantidad.isEmpty()) {
+                    int cantidad = Integer.parseInt(sCantidad);
+                    ProductoModel productoModel = listProductos.get(spProducto.getSelectedItemPosition());
+                    int stock = Integer.parseInt(productoModel.getStock());
+                    if(stock<cantidad){
+                        Toast.makeText(getBaseContext(),"No hay "+cantidad+" productos en stock",Toast.LENGTH_LONG).show();
+                        txtCantidad.setText(productoModel.getStock());
+                    }else if(stock==cantidad){
+                        Toast.makeText(getBaseContext(),"Stock Máximo",Toast.LENGTH_LONG).show();
+                    }
+                }
+                return false;
+            }
+        });
     }
 
     public void onCreateVenta(View view){ postVenta();}

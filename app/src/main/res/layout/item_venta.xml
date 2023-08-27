@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="135dp"
+    android:clickable="true"
+    android:background="@drawable/border"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    android:id="@+id/cardViewVenta">
+    <!-- Indicador de estado -->
+    <View
+        android:layout_width="8dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#3B51DF" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:padding="20dp">
+        <TextView
+            android:id="@+id/txtIdItemVenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ID : "
+            />
+
+        <TextView
+            android:id="@+id/txtClienteItemVenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cliente : "
+            />
+
+        <TextView
+            android:id="@+id/txtProductoItemVenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Producto : "
+            />
+        <TextView
+            android:id="@+id/txtPrecioVentaItemVenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Precio :      Cantidad:"
+            />
+        <TextView
+            android:id="@+id/txtTotalItemVenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: "
+            />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

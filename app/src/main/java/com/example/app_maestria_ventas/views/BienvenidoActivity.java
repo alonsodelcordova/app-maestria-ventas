@@ -38,7 +38,7 @@ public class BienvenidoActivity extends AppCompatActivity {
     }
 
     public void irVentas(View view){
-        Intent intent = new Intent(this, VentasActivity.class);
+        Intent intent = new Intent(this, VentaListActivity.class);
         startActivity(intent);
     }
 

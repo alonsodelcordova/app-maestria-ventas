@@ -13,7 +13,7 @@ public interface VentaService {
     String API_GET_LISTADO = "Api.php?apicall=verVentas";
     String API_POST_CREATE = "Api.php?apicall=grabarVenta";
     @GET(API_GET_LISTADO)
-    Call<RespuestaGenerica<VentasModel>> getVenta();
+    Call<RespuestaGenerica<VentasModel>> getVentas();
     @POST(API_POST_CREATE)
     Call<RespuestaGenerica<VentasModel>> createVenta(@Body VentasModel dataModal);
 }

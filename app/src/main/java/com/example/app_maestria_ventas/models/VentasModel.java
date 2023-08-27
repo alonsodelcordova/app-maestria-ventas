@@ -9,7 +9,9 @@ public class VentasModel {
     private String serie;
     private String codigo;
     private String id_cliente;
+    private String nombre_cliente;
     private String id_producto;
+    private String nombre_producto;
     private String cantidad;
     private String precio_venta;
     private String total;
@@ -17,6 +19,22 @@ public class VentasModel {
     private String igv;
 
     public VentasModel() { }
+
+    public String getNombre_cliente() {
+        return nombre_cliente;
+    }
+
+    public void setNombre_cliente(String nombre_cliente) {
+        this.nombre_cliente = nombre_cliente;
+    }
+
+    public String getNombre_producto() {
+        return nombre_producto;
+    }
+
+    public void setNombre_producto(String nombre_producto) {
+        this.nombre_producto = nombre_producto;
+    }
 
     public String getId_detalleventa() {
         return id_detalleventa;
