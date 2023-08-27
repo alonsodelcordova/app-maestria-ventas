@@ -2,9 +2,11 @@ package com.example.app_maestria_ventas.api;
 
 import com.example.app_maestria_ventas.services.CategoriaService;
 import com.example.app_maestria_ventas.services.ClienteService;
+import com.example.app_maestria_ventas.services.ProductoService;
 import com.example.app_maestria_ventas.services.ProveedorService;
 import com.example.app_maestria_ventas.services.TipoGasService;
 import com.example.app_maestria_ventas.services.UsuarioService;
+import com.example.app_maestria_ventas.services.VentaService;
 import com.google.gson.GsonBuilder;
 
 import retrofit2.Retrofit;
@@ -43,5 +45,11 @@ public class ConexionAPI {
         return getConexion().create(ProveedorService.class);
     }
 
+    public static ProductoService getProductoService(){
+        return getConexion().create(ProductoService.class);
+    }
 
+    public static VentaService getVentaService(){
+        return getConexion().create(VentaService.class);
+    }
 }
