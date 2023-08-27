@@ -15,29 +15,41 @@
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#7AD81B" />
+        android:background="#375C12" />
     <LinearLayout
-        android:id="@+id/linerLayoutClienteItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:padding="20dp">
-        <TextView
-            android:id="@+id/txtIdItemCliente"
-            android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:padding="15dp"
+        android:layout_gravity="center">
+        <LinearLayout
+            android:id="@+id/linerLayoutClienteItem"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ID : "
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/txtIdItemCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID : "
+                />
+            <TextView
+                android:id="@+id/txtNombreItemCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre : "
+                />
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnEliminarCliente"
+            android:layout_width="70dp"
+            android:layout_height="45dp"
+            android:drawableTop="@drawable/baseline_delete_24"
+            android:layout_marginBottom="10dp"
             />
 
-        <TextView
-            android:id="@+id/txtNombreItemCliente"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nombre : "
-            />
     </LinearLayout>
-
 
 
 </androidx.cardview.widget.CardView>
